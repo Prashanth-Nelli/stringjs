@@ -1,5 +1,10 @@
 var $S=( function() {
-		var start = 0, end = 0, matchIndexes = [], strLength = 0, i = 0, inputString = '';
+		var start = 0
+			,end = 0
+			,matchIndexes = []
+			,strLength = 0
+			,i = 0
+			,inputString = '';
 
 		function contains(str) {
 			return (inputString.indexOf(str.toString()) === -1) ? false : true;
