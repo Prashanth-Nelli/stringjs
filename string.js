@@ -33,6 +33,14 @@ var $S = ( function() {
 			}
 		}
 
+		function count(str){
+			strLength=inputString.split(str).length;
+			return (strLength%2===1)?
+					strLength-(strLength%2)
+					:strLength-(strLength%2+1); 
+		}
+
+
 		function $Str(str) {
 			inputString = str;
 		}
@@ -42,7 +50,8 @@ var $S = ( function() {
 			contains : contains,
 			between : between,
 			replaceAll : replaceAll,
-			deleteBetween : deleteBetween
+			deleteBetween : deleteBetween,
+			count:count
 		};
 
 		return function(str) {
