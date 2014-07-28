@@ -1,10 +1,11 @@
-var $S=( function() {
+var $S = ( function() {
 		var start = 0
 			,end = 0
 			,matchIndexes = []
 			,strLength = 0
 			,i = 0
-			,inputString = '';
+			,inputString = '',
+			$S;
 
 		function contains(str) {
 			return (inputString.indexOf(str.toString()) === -1) ? false : true;
@@ -26,9 +27,9 @@ var $S=( function() {
 			end = inputString.indexOf(toStr);
 			strLength = inputString.length;
 			if (start < end) {
-				return inputString.substring(0,start+frmStr.length) + inputString.substring(end, strLength);
+				return inputString.substring(0, start + frmStr.length) + inputString.substring(end, strLength);
 			} else {
-				return inputString.substring(0, end+toStr.length) + inputString.substring(start, strLength);
+				return inputString.substring(0, end + toStr.length) + inputString.substring(start, strLength);
 			}
 		}
 
@@ -36,16 +37,25 @@ var $S=( function() {
 			inputString = str;
 		}
 
+
 		$Str.prototype = {
 			contains : contains,
 			between : between,
 			replaceAll : replaceAll,
 			deleteBetween : deleteBetween
-		};	
-		
-		return function(str){
-				var $S=new $Str(str);		
-				return $S;	
 		};
-	
-}());
+
+		return function(str) {
+
+			if (str !== null && str !== undefined) {
+				str=(typeof str==="string")? str:
+				str.toString();
+				$S = new $Str(str);
+				return $S;
+			}else{
+				throw new Error("please pass an Appropriate Arguement");
+			}
+
+		};
+
+	}());
