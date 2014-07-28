@@ -12,7 +12,7 @@ var $S = ( function() {
 		}
 
 		function between(startS, endS) {
-			start = inputString.indexOf(startS);
+			start = inputString.indexOf(startS)+startS.length;
 			end = inputString.indexOf(endS);
 			return inputString.substring(start, end);
 		}
